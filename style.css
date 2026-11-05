@@ -184,40 +184,23 @@ section h2::after {
 }
 
 /* =========================================
-   ABOUT SECTION (BAGO)
+   ABOUT SECTION (Walang Image)
    ========================================= */
 .about-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-}
-
-.profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--primary);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-    transform: scale(1.05);
+    text-align: center;
 }
 
 .about-text p {
     color: var(--text-muted);
-    font-size: 1.1rem;
-    text-align: left;
+    font-size: 1.15rem;
+    line-height: 1.8;
     margin: 0;
 }
 
 /* =========================================
-   SKILLS SECTION (BAGO)
+   SKILLS SECTION
    ========================================= */
 .skills-grid {
     display: grid;
@@ -384,14 +367,8 @@ section h2::after {
         padding: 60px 5%;
     }
 
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
     .about-text p {
-        text-align: center;
+        font-size: 1rem;
     }
 
     .project-card {
