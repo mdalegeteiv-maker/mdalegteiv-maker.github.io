@@ -1,6 +1,8 @@
 /* =========================================
-   GLOBAL RESET & VARIABLES
+   GOOGLE FONTS & VARIABLES
    ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
 :root {
     --bg-dark: #0f172a;
     --bg-card: #1e293b;
@@ -8,9 +10,12 @@
     --text-muted: #94a3b8;
     --primary: #38bdf8;
     --secondary: #818cf8;
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-main: 'Poppins', sans-serif;
 }
 
+/* =========================================
+   GLOBAL RESET
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +28,31 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Glowing Background Circles (Mesh Gradient) */
+body::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 a {
@@ -88,11 +118,17 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 15px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradientText 4s linear infinite; /* Umiikot ang kulay */
+}
+
+@keyframes gradientText {
+    to { background-position: 200% center; }
 }
 
 .hero p {
@@ -102,17 +138,19 @@ nav ul li a:hover {
 }
 
 .hero-btn {
-    padding: 12px 30px;
+    padding: 15px 40px;
     background-color: var(--primary);
     color: var(--bg-dark);
     font-weight: bold;
+    font-size: 1.1rem;
     border-radius: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
 }
 
 .hero-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.8), 0 0 50px rgba(129, 140, 248, 0.4);
     color: var(--bg-dark);
 }
 
@@ -124,10 +162,22 @@ section {
 }
 
 section h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 40px;
     color: var(--primary);
     text-align: center;
+}
+
+/* Linya sa ilalim ng Section Title */
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 10px auto 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
 section p {
@@ -151,18 +201,21 @@ section p {
 }
 
 .skill-tag {
-    background-color: var(--bg-card);
-    color: var(--text-light);
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    transition: all 0.3s ease;
+    cursor: default;
 }
 
 .skill-tag:hover {
-    transform: translateY(-3px);
-    border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--bg-dark);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
 }
 
 /* =========================================
@@ -175,6 +228,13 @@ section p {
     margin-bottom: 40px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
 }
 
 .project-card h3 {
@@ -202,6 +262,13 @@ section p {
     border-radius: 8px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-img:hover {
+    transform: scale(1.05);
+    border-color: var(--primary);
+    z-index: 10;
 }
 
 .btn {
@@ -218,6 +285,7 @@ section p {
 .btn:hover {
     background-color: var(--primary);
     color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
 }
 
 /* =========================================
@@ -228,7 +296,7 @@ section p {
 }
 
 /* =========================================
-   BACK TO TOP BUTTON (Original Code)
+   BACK TO TOP BUTTON
    ========================================= */
 #backToTopBtn {
     display: none;
@@ -271,7 +339,11 @@ section p {
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
     }
 
     section {
