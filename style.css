@@ -203,26 +203,58 @@ section h2 {
 }
 
 /* =========================================
-   CUSTOM SCROLLBAR (Ito ang bago!)
+   CUSTOM SCROLLBAR 
    ========================================= */
-
-/* Para sa buong scrollbar (lapad) */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
-/* Para sa background ng scrollbar (yung pinaka-dadaanan) */
 ::-webkit-scrollbar-track {
-    background: #0f172a; /* Kaparehas ng body background */
+    background: #0f172a; 
 }
 
-/* Para sa hinihila (yung thumb) */
 ::-webkit-scrollbar-thumb {
-    background: #38bdf8; /* Sky blue color */
+    background: #38bdf8; 
     border-radius: 10px;
 }
 
-/* Kapag hinover ng mouse */
 ::-webkit-scrollbar-thumb:hover {
-    background: #818cf8; /* Magiging purple/indigo pag hinover */
+    background: #818cf8; 
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Para sa Cellphone)
+   ========================================= */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; 
+        gap: 15px;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; 
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 50px 15px;
+    }
+
+    #skills {
+        padding: 30px 15px;
+    }
+
+    .project-img {
+        max-width: 100%; 
+    }
 }
