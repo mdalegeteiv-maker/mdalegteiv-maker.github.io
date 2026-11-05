@@ -30,7 +30,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Glowing Background Circles (Mesh Gradient) */
+/* Glowing Background Circles */
 body::before {
     content: "";
     position: fixed;
@@ -124,7 +124,7 @@ nav ul li a:hover {
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientText 4s linear infinite; /* Umiikot ang kulay */
+    animation: gradientText 4s linear infinite;
 }
 
 @keyframes gradientText {
@@ -158,64 +158,94 @@ nav ul li a:hover {
    SECTIONS (Generic)
    ========================================= */
 section {
-    padding: 80px 10%;
+    padding: 60px 10%;
 }
 
 section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
     text-align: center;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 4s linear infinite;
 }
 
-/* Linya sa ilalim ng Section Title */
 section h2::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 4px;
-    background: var(--primary);
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
     margin: 10px auto 0;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-section p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    text-align: center;
-    max-width: 800px;
+/* =========================================
+   ABOUT SECTION (BAGO)
+   ========================================= */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.about-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0;
+}
+
 /* =========================================
-   SKILLS SECTION
+   SKILLS SECTION (BAGO)
    ========================================= */
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 15px;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .skill-tag {
-    background-color: rgba(56, 189, 248, 0.1);
-    color: var(--primary);
-    padding: 10px 25px;
-    border-radius: 50px;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    color: var(--text-light);
+    padding: 15px;
+    border-radius: 12px;
     font-weight: 600;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.02);
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .skill-tag:hover {
-    background-color: var(--primary);
+    background: var(--primary);
     color: var(--bg-dark);
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--primary);
+    border-color: var(--primary);
 }
 
 /* =========================================
@@ -244,6 +274,7 @@ section p {
 }
 
 .project-card p {
+    color: var(--text-muted);
     text-align: left;
     margin: 0 0 20px 0;
     font-size: 1rem;
@@ -292,7 +323,10 @@ section p {
    CONTACT SECTION
    ========================================= */
 #contact p {
+    text-align: center;
+    color: var(--text-muted);
     margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 /* =========================================
@@ -348,6 +382,16 @@ section p {
 
     section {
         padding: 60px 5%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-text p {
+        text-align: center;
     }
 
     .project-card {
